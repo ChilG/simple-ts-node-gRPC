@@ -1,0 +1,33 @@
+{
+  "name": "simple-gRPC",
+  "version": "1.0.0",
+  "main": "dist/main.js",
+  "license": "ISC",
+  "scripts": {
+    "build": "tsc",
+    "proto": "rimraf src/generated && sh ./scripts/compile-proto.sh",
+    "dev:client": "ts-node src/client.ts",
+    "dev:server": "ts-node src/server.ts",
+    "format": "prettier --write \"src/**/*.ts\"",
+    "prebuild": "rimraf dist",
+    "prisma:generate": "prisma generate",
+    "prisma:migrate": "prisma migrate dev",
+    "start:client": "NODE_ENV=production node dist/client.js",
+    "start:server": "NODE_ENV=production node dist/server.js"
+  },
+  "dependencies": {
+    "@grpc/grpc-js": "^1.11.1",
+    "@grpc/proto-loader": "^0.7.13",
+    "@prisma/client": "^5.17.0",
+    "prisma": "^5.17.0",
+    "ts-node": "^10.9.2"
+  },
+  "devDependencies": {
+    "@types/node": "^22.0.3",
+    "grpc-tools": "^1.12.4",
+    "prettier": "^3.3.3",
+    "rimraf": "^6.0.1",
+    "ts-proto": "^1.181.1",
+    "typescript": "^5.5.4"
+  }
+}
