@@ -1,0 +1,48 @@
+syntax = "proto3";
+
+import "google/protobuf/any.proto";
+
+package bidirectional;
+
+// The user service definition.
+service Bidirectional {
+  // Gets a user by ID
+  rpc Communication (stream BidirectionalRequest) returns (stream BidirectionalResponse) {}
+}
+
+// Define the complex message type for the array element
+message CallArrayElement {
+  string uniqueId = 1;
+  string action = 2;
+  google.protobuf.Any payload = 3;
+}
+
+message CallResultArrayElement {
+  string uniqueId = 1;
+  google.protobuf.Any payload = 2;
+}
+
+message CallErrorArrayElement {
+  string uniqueId = 1;
+  string errorMessage = 2;
+  string errorDetails = 3;
+  google.protobuf.Any payload = 4;
+}
+
+// The request message containing the user ID.
+message BidirectionalRequest {
+  oneof request_type {
+    CallArrayElement call = 1;
+    CallResultArrayElement call_result = 2;
+    CallErrorArrayElement call_error = 3;
+  }
+}
+
+// The response message containing the user details.
+message BidirectionalResponse {
+  oneof response_type {
+    CallArrayElement call = 1;
+    CallResultArrayElement call_result = 2;
+    CallErrorArrayElement call_error = 3;
+  }
+}
