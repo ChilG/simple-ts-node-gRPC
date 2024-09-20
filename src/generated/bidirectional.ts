@@ -15,11 +15,11 @@ import {
   makeGenericClientConstructor,
   Metadata,
   type UntypedServiceImplementation,
-} from "@grpc/grpc-js";
-import * as _m0 from "protobufjs/minimal";
-import { Any } from "./google/protobuf/any";
+} from '@grpc/grpc-js';
+import * as _m0 from 'protobufjs/minimal';
+import {Any} from './google/protobuf/any';
 
-export const protobufPackage = "bidirectional";
+export const protobufPackage = 'bidirectional';
 
 /** Define the complex message type for the array element */
 export interface CallArrayElement {
@@ -55,15 +55,15 @@ export interface BidirectionalResponse {
 }
 
 function createBaseCallArrayElement(): CallArrayElement {
-  return { uniqueId: "", action: "", payload: undefined };
+  return {uniqueId: '', action: '', payload: undefined};
 }
 
 export const CallArrayElement = {
   encode(message: CallArrayElement, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
-    if (message.uniqueId !== "") {
+    if (message.uniqueId !== '') {
       writer.uint32(10).string(message.uniqueId);
     }
-    if (message.action !== "") {
+    if (message.action !== '') {
       writer.uint32(18).string(message.action);
     }
     if (message.payload !== undefined) {
@@ -111,18 +111,18 @@ export const CallArrayElement = {
 
   fromJSON(object: any): CallArrayElement {
     return {
-      uniqueId: isSet(object.uniqueId) ? globalThis.String(object.uniqueId) : "",
-      action: isSet(object.action) ? globalThis.String(object.action) : "",
+      uniqueId: isSet(object.uniqueId) ? globalThis.String(object.uniqueId) : '',
+      action: isSet(object.action) ? globalThis.String(object.action) : '',
       payload: isSet(object.payload) ? Any.fromJSON(object.payload) : undefined,
     };
   },
 
   toJSON(message: CallArrayElement): unknown {
     const obj: any = {};
-    if (message.uniqueId !== "") {
+    if (message.uniqueId !== '') {
       obj.uniqueId = message.uniqueId;
     }
-    if (message.action !== "") {
+    if (message.action !== '') {
       obj.action = message.action;
     }
     if (message.payload !== undefined) {
@@ -136,22 +136,21 @@ export const CallArrayElement = {
   },
   fromPartial<I extends Exact<DeepPartial<CallArrayElement>, I>>(object: I): CallArrayElement {
     const message = createBaseCallArrayElement();
-    message.uniqueId = object.uniqueId ?? "";
-    message.action = object.action ?? "";
-    message.payload = (object.payload !== undefined && object.payload !== null)
-      ? Any.fromPartial(object.payload)
-      : undefined;
+    message.uniqueId = object.uniqueId ?? '';
+    message.action = object.action ?? '';
+    message.payload =
+      object.payload !== undefined && object.payload !== null ? Any.fromPartial(object.payload) : undefined;
     return message;
   },
 };
 
 function createBaseCallResultArrayElement(): CallResultArrayElement {
-  return { uniqueId: "", payload: undefined };
+  return {uniqueId: '', payload: undefined};
 }
 
 export const CallResultArrayElement = {
   encode(message: CallResultArrayElement, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
-    if (message.uniqueId !== "") {
+    if (message.uniqueId !== '') {
       writer.uint32(10).string(message.uniqueId);
     }
     if (message.payload !== undefined) {
@@ -192,14 +191,14 @@ export const CallResultArrayElement = {
 
   fromJSON(object: any): CallResultArrayElement {
     return {
-      uniqueId: isSet(object.uniqueId) ? globalThis.String(object.uniqueId) : "",
+      uniqueId: isSet(object.uniqueId) ? globalThis.String(object.uniqueId) : '',
       payload: isSet(object.payload) ? Any.fromJSON(object.payload) : undefined,
     };
   },
 
   toJSON(message: CallResultArrayElement): unknown {
     const obj: any = {};
-    if (message.uniqueId !== "") {
+    if (message.uniqueId !== '') {
       obj.uniqueId = message.uniqueId;
     }
     if (message.payload !== undefined) {
@@ -213,27 +212,26 @@ export const CallResultArrayElement = {
   },
   fromPartial<I extends Exact<DeepPartial<CallResultArrayElement>, I>>(object: I): CallResultArrayElement {
     const message = createBaseCallResultArrayElement();
-    message.uniqueId = object.uniqueId ?? "";
-    message.payload = (object.payload !== undefined && object.payload !== null)
-      ? Any.fromPartial(object.payload)
-      : undefined;
+    message.uniqueId = object.uniqueId ?? '';
+    message.payload =
+      object.payload !== undefined && object.payload !== null ? Any.fromPartial(object.payload) : undefined;
     return message;
   },
 };
 
 function createBaseCallErrorArrayElement(): CallErrorArrayElement {
-  return { uniqueId: "", errorMessage: "", errorDetails: "", payload: undefined };
+  return {uniqueId: '', errorMessage: '', errorDetails: '', payload: undefined};
 }
 
 export const CallErrorArrayElement = {
   encode(message: CallErrorArrayElement, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
-    if (message.uniqueId !== "") {
+    if (message.uniqueId !== '') {
       writer.uint32(10).string(message.uniqueId);
     }
-    if (message.errorMessage !== "") {
+    if (message.errorMessage !== '') {
       writer.uint32(18).string(message.errorMessage);
     }
-    if (message.errorDetails !== "") {
+    if (message.errorDetails !== '') {
       writer.uint32(26).string(message.errorDetails);
     }
     if (message.payload !== undefined) {
@@ -288,22 +286,22 @@ export const CallErrorArrayElement = {
 
   fromJSON(object: any): CallErrorArrayElement {
     return {
-      uniqueId: isSet(object.uniqueId) ? globalThis.String(object.uniqueId) : "",
-      errorMessage: isSet(object.errorMessage) ? globalThis.String(object.errorMessage) : "",
-      errorDetails: isSet(object.errorDetails) ? globalThis.String(object.errorDetails) : "",
+      uniqueId: isSet(object.uniqueId) ? globalThis.String(object.uniqueId) : '',
+      errorMessage: isSet(object.errorMessage) ? globalThis.String(object.errorMessage) : '',
+      errorDetails: isSet(object.errorDetails) ? globalThis.String(object.errorDetails) : '',
       payload: isSet(object.payload) ? Any.fromJSON(object.payload) : undefined,
     };
   },
 
   toJSON(message: CallErrorArrayElement): unknown {
     const obj: any = {};
-    if (message.uniqueId !== "") {
+    if (message.uniqueId !== '') {
       obj.uniqueId = message.uniqueId;
     }
-    if (message.errorMessage !== "") {
+    if (message.errorMessage !== '') {
       obj.errorMessage = message.errorMessage;
     }
-    if (message.errorDetails !== "") {
+    if (message.errorDetails !== '') {
       obj.errorDetails = message.errorDetails;
     }
     if (message.payload !== undefined) {
@@ -317,18 +315,17 @@ export const CallErrorArrayElement = {
   },
   fromPartial<I extends Exact<DeepPartial<CallErrorArrayElement>, I>>(object: I): CallErrorArrayElement {
     const message = createBaseCallErrorArrayElement();
-    message.uniqueId = object.uniqueId ?? "";
-    message.errorMessage = object.errorMessage ?? "";
-    message.errorDetails = object.errorDetails ?? "";
-    message.payload = (object.payload !== undefined && object.payload !== null)
-      ? Any.fromPartial(object.payload)
-      : undefined;
+    message.uniqueId = object.uniqueId ?? '';
+    message.errorMessage = object.errorMessage ?? '';
+    message.errorDetails = object.errorDetails ?? '';
+    message.payload =
+      object.payload !== undefined && object.payload !== null ? Any.fromPartial(object.payload) : undefined;
     return message;
   },
 };
 
 function createBaseBidirectionalRequest(): BidirectionalRequest {
-  return { call: undefined, callResult: undefined, callError: undefined };
+  return {call: undefined, callResult: undefined, callError: undefined};
 }
 
 export const BidirectionalRequest = {
@@ -409,21 +406,22 @@ export const BidirectionalRequest = {
   },
   fromPartial<I extends Exact<DeepPartial<BidirectionalRequest>, I>>(object: I): BidirectionalRequest {
     const message = createBaseBidirectionalRequest();
-    message.call = (object.call !== undefined && object.call !== null)
-      ? CallArrayElement.fromPartial(object.call)
-      : undefined;
-    message.callResult = (object.callResult !== undefined && object.callResult !== null)
-      ? CallResultArrayElement.fromPartial(object.callResult)
-      : undefined;
-    message.callError = (object.callError !== undefined && object.callError !== null)
-      ? CallErrorArrayElement.fromPartial(object.callError)
-      : undefined;
+    message.call =
+      object.call !== undefined && object.call !== null ? CallArrayElement.fromPartial(object.call) : undefined;
+    message.callResult =
+      object.callResult !== undefined && object.callResult !== null
+        ? CallResultArrayElement.fromPartial(object.callResult)
+        : undefined;
+    message.callError =
+      object.callError !== undefined && object.callError !== null
+        ? CallErrorArrayElement.fromPartial(object.callError)
+        : undefined;
     return message;
   },
 };
 
 function createBaseBidirectionalResponse(): BidirectionalResponse {
-  return { call: undefined, callResult: undefined, callError: undefined };
+  return {call: undefined, callResult: undefined, callError: undefined};
 }
 
 export const BidirectionalResponse = {
@@ -504,15 +502,16 @@ export const BidirectionalResponse = {
   },
   fromPartial<I extends Exact<DeepPartial<BidirectionalResponse>, I>>(object: I): BidirectionalResponse {
     const message = createBaseBidirectionalResponse();
-    message.call = (object.call !== undefined && object.call !== null)
-      ? CallArrayElement.fromPartial(object.call)
-      : undefined;
-    message.callResult = (object.callResult !== undefined && object.callResult !== null)
-      ? CallResultArrayElement.fromPartial(object.callResult)
-      : undefined;
-    message.callError = (object.callError !== undefined && object.callError !== null)
-      ? CallErrorArrayElement.fromPartial(object.callError)
-      : undefined;
+    message.call =
+      object.call !== undefined && object.call !== null ? CallArrayElement.fromPartial(object.call) : undefined;
+    message.callResult =
+      object.callResult !== undefined && object.callResult !== null
+        ? CallResultArrayElement.fromPartial(object.callResult)
+        : undefined;
+    message.callError =
+      object.callError !== undefined && object.callError !== null
+        ? CallErrorArrayElement.fromPartial(object.callError)
+        : undefined;
     return message;
   },
 };
@@ -522,7 +521,7 @@ export type BidirectionalService = typeof BidirectionalService;
 export const BidirectionalService = {
   /** Gets a user by ID */
   communication: {
-    path: "/bidirectional.Bidirectional/Communication",
+    path: '/bidirectional.Bidirectional/Communication',
     requestStream: true,
     responseStream: true,
     requestSerialize: (value: BidirectionalRequest) => Buffer.from(BidirectionalRequest.encode(value).finish()),
@@ -543,13 +542,13 @@ export interface BidirectionalClient extends Client {
   communication(options: Partial<CallOptions>): ClientDuplexStream<BidirectionalRequest, BidirectionalResponse>;
   communication(
     metadata: Metadata,
-    options?: Partial<CallOptions>,
+    options?: Partial<CallOptions>
   ): ClientDuplexStream<BidirectionalRequest, BidirectionalResponse>;
 }
 
 export const BidirectionalClient = makeGenericClientConstructor(
   BidirectionalService,
-  "bidirectional.Bidirectional",
+  'bidirectional.Bidirectional'
 ) as unknown as {
   new (address: string, credentials: ChannelCredentials, options?: Partial<ClientOptions>): BidirectionalClient;
   service: typeof BidirectionalService;
@@ -558,15 +557,20 @@ export const BidirectionalClient = makeGenericClientConstructor(
 
 type Builtin = Date | Function | Uint8Array | string | number | boolean | undefined;
 
-export type DeepPartial<T> = T extends Builtin ? T
-  : T extends globalThis.Array<infer U> ? globalThis.Array<DeepPartial<U>>
-  : T extends ReadonlyArray<infer U> ? ReadonlyArray<DeepPartial<U>>
-  : T extends {} ? { [K in keyof T]?: DeepPartial<T[K]> }
-  : Partial<T>;
+export type DeepPartial<T> = T extends Builtin
+  ? T
+  : T extends globalThis.Array<infer U>
+    ? globalThis.Array<DeepPartial<U>>
+    : T extends ReadonlyArray<infer U>
+      ? ReadonlyArray<DeepPartial<U>>
+      : T extends {}
+        ? {[K in keyof T]?: DeepPartial<T[K]>}
+        : Partial<T>;
 
 type KeysOfUnion<T> = T extends T ? keyof T : never;
-export type Exact<P, I extends P> = P extends Builtin ? P
-  : P & { [K in keyof P]: Exact<P[K], I[K]> } & { [K in Exclude<keyof I, KeysOfUnion<P>>]: never };
+export type Exact<P, I extends P> = P extends Builtin
+  ? P
+  : P & {[K in keyof P]: Exact<P[K], I[K]>} & {[K in Exclude<keyof I, KeysOfUnion<P>>]: never};
 
 function isSet(value: any): boolean {
   return value !== null && value !== undefined;
