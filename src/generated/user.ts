@@ -16,10 +16,10 @@ import {
   Metadata,
   type ServiceError,
   type UntypedServiceImplementation,
-} from '@grpc/grpc-js';
-import * as _m0 from 'protobufjs/minimal';
+} from "@grpc/grpc-js";
+import * as _m0 from "protobufjs/minimal";
 
-export const protobufPackage = 'user';
+export const protobufPackage = "user";
 
 /** The request message containing the user ID. */
 export interface UserRequest {
@@ -34,12 +34,12 @@ export interface UserResponse {
 }
 
 function createBaseUserRequest(): UserRequest {
-  return {uid: ''};
+  return { uid: "" };
 }
 
 export const UserRequest = {
   encode(message: UserRequest, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
-    if (message.uid !== '') {
+    if (message.uid !== "") {
       writer.uint32(10).string(message.uid);
     }
     return writer;
@@ -69,12 +69,12 @@ export const UserRequest = {
   },
 
   fromJSON(object: any): UserRequest {
-    return {uid: isSet(object.uid) ? globalThis.String(object.uid) : ''};
+    return { uid: isSet(object.uid) ? globalThis.String(object.uid) : "" };
   },
 
   toJSON(message: UserRequest): unknown {
     const obj: any = {};
-    if (message.uid !== '') {
+    if (message.uid !== "") {
       obj.uid = message.uid;
     }
     return obj;
@@ -85,24 +85,24 @@ export const UserRequest = {
   },
   fromPartial<I extends Exact<DeepPartial<UserRequest>, I>>(object: I): UserRequest {
     const message = createBaseUserRequest();
-    message.uid = object.uid ?? '';
+    message.uid = object.uid ?? "";
     return message;
   },
 };
 
 function createBaseUserResponse(): UserResponse {
-  return {uid: '', name: '', email: ''};
+  return { uid: "", name: "", email: "" };
 }
 
 export const UserResponse = {
   encode(message: UserResponse, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
-    if (message.uid !== '') {
+    if (message.uid !== "") {
       writer.uint32(10).string(message.uid);
     }
-    if (message.name !== '') {
+    if (message.name !== "") {
       writer.uint32(18).string(message.name);
     }
-    if (message.email !== '') {
+    if (message.email !== "") {
       writer.uint32(26).string(message.email);
     }
     return writer;
@@ -147,21 +147,21 @@ export const UserResponse = {
 
   fromJSON(object: any): UserResponse {
     return {
-      uid: isSet(object.uid) ? globalThis.String(object.uid) : '',
-      name: isSet(object.name) ? globalThis.String(object.name) : '',
-      email: isSet(object.email) ? globalThis.String(object.email) : '',
+      uid: isSet(object.uid) ? globalThis.String(object.uid) : "",
+      name: isSet(object.name) ? globalThis.String(object.name) : "",
+      email: isSet(object.email) ? globalThis.String(object.email) : "",
     };
   },
 
   toJSON(message: UserResponse): unknown {
     const obj: any = {};
-    if (message.uid !== '') {
+    if (message.uid !== "") {
       obj.uid = message.uid;
     }
-    if (message.name !== '') {
+    if (message.name !== "") {
       obj.name = message.name;
     }
-    if (message.email !== '') {
+    if (message.email !== "") {
       obj.email = message.email;
     }
     return obj;
@@ -172,9 +172,9 @@ export const UserResponse = {
   },
   fromPartial<I extends Exact<DeepPartial<UserResponse>, I>>(object: I): UserResponse {
     const message = createBaseUserResponse();
-    message.uid = object.uid ?? '';
-    message.name = object.name ?? '';
-    message.email = object.email ?? '';
+    message.uid = object.uid ?? "";
+    message.name = object.name ?? "";
+    message.email = object.email ?? "";
     return message;
   },
 };
@@ -184,7 +184,7 @@ export type UserService = typeof UserService;
 export const UserService = {
   /** Gets a user by ID */
   getUser: {
-    path: '/user.User/GetUser',
+    path: "/user.User/GetUser",
     requestStream: false,
     responseStream: false,
     requestSerialize: (value: UserRequest) => Buffer.from(UserRequest.encode(value).finish()),
@@ -203,22 +203,22 @@ export interface UserClient extends Client {
   /** Gets a user by ID */
   getUser(
     request: UserRequest,
-    callback: (error: ServiceError | null, response: UserResponse) => void
+    callback: (error: ServiceError | null, response: UserResponse) => void,
   ): ClientUnaryCall;
   getUser(
     request: UserRequest,
     metadata: Metadata,
-    callback: (error: ServiceError | null, response: UserResponse) => void
+    callback: (error: ServiceError | null, response: UserResponse) => void,
   ): ClientUnaryCall;
   getUser(
     request: UserRequest,
     metadata: Metadata,
     options: Partial<CallOptions>,
-    callback: (error: ServiceError | null, response: UserResponse) => void
+    callback: (error: ServiceError | null, response: UserResponse) => void,
   ): ClientUnaryCall;
 }
 
-export const UserClient = makeGenericClientConstructor(UserService, 'user.User') as unknown as {
+export const UserClient = makeGenericClientConstructor(UserService, "user.User") as unknown as {
   new (address: string, credentials: ChannelCredentials, options?: Partial<ClientOptions>): UserClient;
   service: typeof UserService;
   serviceName: string;
@@ -226,20 +226,15 @@ export const UserClient = makeGenericClientConstructor(UserService, 'user.User')
 
 type Builtin = Date | Function | Uint8Array | string | number | boolean | undefined;
 
-export type DeepPartial<T> = T extends Builtin
-  ? T
-  : T extends globalThis.Array<infer U>
-    ? globalThis.Array<DeepPartial<U>>
-    : T extends ReadonlyArray<infer U>
-      ? ReadonlyArray<DeepPartial<U>>
-      : T extends {}
-        ? {[K in keyof T]?: DeepPartial<T[K]>}
-        : Partial<T>;
+export type DeepPartial<T> = T extends Builtin ? T
+  : T extends globalThis.Array<infer U> ? globalThis.Array<DeepPartial<U>>
+  : T extends ReadonlyArray<infer U> ? ReadonlyArray<DeepPartial<U>>
+  : T extends {} ? { [K in keyof T]?: DeepPartial<T[K]> }
+  : Partial<T>;
 
 type KeysOfUnion<T> = T extends T ? keyof T : never;
-export type Exact<P, I extends P> = P extends Builtin
-  ? P
-  : P & {[K in keyof P]: Exact<P[K], I[K]>} & {[K in Exclude<keyof I, KeysOfUnion<P>>]: never};
+export type Exact<P, I extends P> = P extends Builtin ? P
+  : P & { [K in keyof P]: Exact<P[K], I[K]> } & { [K in Exclude<keyof I, KeysOfUnion<P>>]: never };
 
 function isSet(value: any): boolean {
   return value !== null && value !== undefined;

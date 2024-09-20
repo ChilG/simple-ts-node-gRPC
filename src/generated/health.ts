@@ -18,10 +18,10 @@ import {
   Metadata,
   type ServiceError,
   type UntypedServiceImplementation,
-} from '@grpc/grpc-js';
-import * as _m0 from 'protobufjs/minimal';
+} from "@grpc/grpc-js";
+import * as _m0 from "protobufjs/minimal";
 
-export const protobufPackage = 'grpc.health.v1';
+export const protobufPackage = "grpc.health.v1";
 
 export interface HealthCheckRequest {
   service: string;
@@ -43,19 +43,19 @@ export enum HealthCheckResponse_ServingStatus {
 export function healthCheckResponse_ServingStatusFromJSON(object: any): HealthCheckResponse_ServingStatus {
   switch (object) {
     case 0:
-    case 'UNKNOWN':
+    case "UNKNOWN":
       return HealthCheckResponse_ServingStatus.UNKNOWN;
     case 1:
-    case 'SERVING':
+    case "SERVING":
       return HealthCheckResponse_ServingStatus.SERVING;
     case 2:
-    case 'NOT_SERVING':
+    case "NOT_SERVING":
       return HealthCheckResponse_ServingStatus.NOT_SERVING;
     case 3:
-    case 'SERVICE_UNKNOWN':
+    case "SERVICE_UNKNOWN":
       return HealthCheckResponse_ServingStatus.SERVICE_UNKNOWN;
     case -1:
-    case 'UNRECOGNIZED':
+    case "UNRECOGNIZED":
     default:
       return HealthCheckResponse_ServingStatus.UNRECOGNIZED;
   }
@@ -64,26 +64,26 @@ export function healthCheckResponse_ServingStatusFromJSON(object: any): HealthCh
 export function healthCheckResponse_ServingStatusToJSON(object: HealthCheckResponse_ServingStatus): string {
   switch (object) {
     case HealthCheckResponse_ServingStatus.UNKNOWN:
-      return 'UNKNOWN';
+      return "UNKNOWN";
     case HealthCheckResponse_ServingStatus.SERVING:
-      return 'SERVING';
+      return "SERVING";
     case HealthCheckResponse_ServingStatus.NOT_SERVING:
-      return 'NOT_SERVING';
+      return "NOT_SERVING";
     case HealthCheckResponse_ServingStatus.SERVICE_UNKNOWN:
-      return 'SERVICE_UNKNOWN';
+      return "SERVICE_UNKNOWN";
     case HealthCheckResponse_ServingStatus.UNRECOGNIZED:
     default:
-      return 'UNRECOGNIZED';
+      return "UNRECOGNIZED";
   }
 }
 
 function createBaseHealthCheckRequest(): HealthCheckRequest {
-  return {service: ''};
+  return { service: "" };
 }
 
 export const HealthCheckRequest = {
   encode(message: HealthCheckRequest, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
-    if (message.service !== '') {
+    if (message.service !== "") {
       writer.uint32(10).string(message.service);
     }
     return writer;
@@ -113,12 +113,12 @@ export const HealthCheckRequest = {
   },
 
   fromJSON(object: any): HealthCheckRequest {
-    return {service: isSet(object.service) ? globalThis.String(object.service) : ''};
+    return { service: isSet(object.service) ? globalThis.String(object.service) : "" };
   },
 
   toJSON(message: HealthCheckRequest): unknown {
     const obj: any = {};
-    if (message.service !== '') {
+    if (message.service !== "") {
       obj.service = message.service;
     }
     return obj;
@@ -129,13 +129,13 @@ export const HealthCheckRequest = {
   },
   fromPartial<I extends Exact<DeepPartial<HealthCheckRequest>, I>>(object: I): HealthCheckRequest {
     const message = createBaseHealthCheckRequest();
-    message.service = object.service ?? '';
+    message.service = object.service ?? "";
     return message;
   },
 };
 
 function createBaseHealthCheckResponse(): HealthCheckResponse {
-  return {status: 0};
+  return { status: 0 };
 }
 
 export const HealthCheckResponse = {
@@ -170,7 +170,7 @@ export const HealthCheckResponse = {
   },
 
   fromJSON(object: any): HealthCheckResponse {
-    return {status: isSet(object.status) ? healthCheckResponse_ServingStatusFromJSON(object.status) : 0};
+    return { status: isSet(object.status) ? healthCheckResponse_ServingStatusFromJSON(object.status) : 0 };
   },
 
   toJSON(message: HealthCheckResponse): unknown {
@@ -194,7 +194,7 @@ export const HealthCheckResponse = {
 export type HealthService = typeof HealthService;
 export const HealthService = {
   check: {
-    path: '/grpc.health.v1.Health/Check',
+    path: "/grpc.health.v1.Health/Check",
     requestStream: false,
     responseStream: false,
     requestSerialize: (value: HealthCheckRequest) => Buffer.from(HealthCheckRequest.encode(value).finish()),
@@ -203,7 +203,7 @@ export const HealthService = {
     responseDeserialize: (value: Buffer) => HealthCheckResponse.decode(value),
   },
   watch: {
-    path: '/grpc.health.v1.Health/Watch',
+    path: "/grpc.health.v1.Health/Watch",
     requestStream: false,
     responseStream: true,
     requestSerialize: (value: HealthCheckRequest) => Buffer.from(HealthCheckRequest.encode(value).finish()),
@@ -221,28 +221,28 @@ export interface HealthServer extends UntypedServiceImplementation {
 export interface HealthClient extends Client {
   check(
     request: HealthCheckRequest,
-    callback: (error: ServiceError | null, response: HealthCheckResponse) => void
+    callback: (error: ServiceError | null, response: HealthCheckResponse) => void,
   ): ClientUnaryCall;
   check(
     request: HealthCheckRequest,
     metadata: Metadata,
-    callback: (error: ServiceError | null, response: HealthCheckResponse) => void
+    callback: (error: ServiceError | null, response: HealthCheckResponse) => void,
   ): ClientUnaryCall;
   check(
     request: HealthCheckRequest,
     metadata: Metadata,
     options: Partial<CallOptions>,
-    callback: (error: ServiceError | null, response: HealthCheckResponse) => void
+    callback: (error: ServiceError | null, response: HealthCheckResponse) => void,
   ): ClientUnaryCall;
   watch(request: HealthCheckRequest, options?: Partial<CallOptions>): ClientReadableStream<HealthCheckResponse>;
   watch(
     request: HealthCheckRequest,
     metadata?: Metadata,
-    options?: Partial<CallOptions>
+    options?: Partial<CallOptions>,
   ): ClientReadableStream<HealthCheckResponse>;
 }
 
-export const HealthClient = makeGenericClientConstructor(HealthService, 'grpc.health.v1.Health') as unknown as {
+export const HealthClient = makeGenericClientConstructor(HealthService, "grpc.health.v1.Health") as unknown as {
   new (address: string, credentials: ChannelCredentials, options?: Partial<ClientOptions>): HealthClient;
   service: typeof HealthService;
   serviceName: string;
@@ -250,20 +250,15 @@ export const HealthClient = makeGenericClientConstructor(HealthService, 'grpc.he
 
 type Builtin = Date | Function | Uint8Array | string | number | boolean | undefined;
 
-export type DeepPartial<T> = T extends Builtin
-  ? T
-  : T extends globalThis.Array<infer U>
-    ? globalThis.Array<DeepPartial<U>>
-    : T extends ReadonlyArray<infer U>
-      ? ReadonlyArray<DeepPartial<U>>
-      : T extends {}
-        ? {[K in keyof T]?: DeepPartial<T[K]>}
-        : Partial<T>;
+export type DeepPartial<T> = T extends Builtin ? T
+  : T extends globalThis.Array<infer U> ? globalThis.Array<DeepPartial<U>>
+  : T extends ReadonlyArray<infer U> ? ReadonlyArray<DeepPartial<U>>
+  : T extends {} ? { [K in keyof T]?: DeepPartial<T[K]> }
+  : Partial<T>;
 
 type KeysOfUnion<T> = T extends T ? keyof T : never;
-export type Exact<P, I extends P> = P extends Builtin
-  ? P
-  : P & {[K in keyof P]: Exact<P[K], I[K]>} & {[K in Exclude<keyof I, KeysOfUnion<P>>]: never};
+export type Exact<P, I extends P> = P extends Builtin ? P
+  : P & { [K in keyof P]: Exact<P[K], I[K]> } & { [K in Exclude<keyof I, KeysOfUnion<P>>]: never };
 
 function isSet(value: any): boolean {
   return value !== null && value !== undefined;
